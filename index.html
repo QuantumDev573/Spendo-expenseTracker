@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spendo</title>
+    <link href="./output.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+          body{
+              
+              color: white;
+              padding:3px;
+          }
+          .transaction {
+          display: grid;
+          grid-template-columns: 0.5fr 1fr 1fr 1fr 0.1fr;
+          place-items: center;
+          padding: 7px;
+          border-radius: 6px;
+          margin-bottom: 5px;
+          background: rgba(36, 36, 36, 0.358);
+          border: 1px solid rgba(114, 114, 114, 0.508);
+          }
+
+          .transaction.expense {
+          
+          border-left: 3px solid rgb(167, 0, 0);
+          }
+
+          .transaction.income {
+          border-left: 3px solid rgb(0, 167, 0);
+          }
+          .delete-btn{
+            background: none;
+            border: none;
+            z-index: 40;
+          }
+
+          .feather{
+            color: rgb(157, 157, 157);
+            z-index: 10;
+          }
+          .feather:hover{
+            color: rgb(185, 26, 26);
+          }
+
+          #transactionList{
+            padding: 0;
+            margin: 0;
+          }
+
+          .expense-header{
+            display: grid;
+            text-align:center;
+            padding-top: 10px;
+            padding-bottom: 15px ;
+            grid-template-columns: 0.5fr 1fr 1fr 1fr 0.1fr;
+            background:linear-gradient(0deg, rgba(31, 30, 30, 0.996), rgb(15, 14, 14));
+            color: #E5E7EB;
+            border: 1px solid #303030;
+            border-radius: 6px;
+            margin-bottom: 5px;
+          }
+        </style>
+</head>
+<body>
+  <div class=" mb-2  grid grid-cols-1 sm:flex justify-between items-center bg-zinc-400/20 ">
+    <!-- function MainSheet() -->
+    <div class="grid grid-cols-2 gap-2 mb-1 sm:order-2 md:flex">
+
+        <div class="w-full min-w-30 h-12 active:p-[1px]">
+          <button id="addButton"  class=" w-full h-full bg-linear-180 from-[#f2f2f2] to-[#b3b3b3] text-zinc-950 text-lg rounded-lg transition duration-200
+          hover:shadow-md shadow-zinc-500 ">Add</button>
+        </div>
+
+        <div class="w-full h-12 min-w-30 border border-white/50 rounded-lg bg-zinc-900 text-center pt-1">
+          <p class="text-xs block text-white/80">Total</p>
+          <p>
+            <span>&#8377;</span> 
+            <span class="totalAmount"></span>
+          </p>
+        </div>
+
+      <div class="w-full min-w-30 h-12 border border-red-600 rounded-lg bg-red-500/10 text-center pt-1">
+        <span class="text-xs block text-white/80">Expense</span>
+        <p class="text-red-600">
+          <span>&#8377;</span>
+          <span class="expenseAmount"></span>
+        </p>
+      </div>
+      
+      <div class="w-full min-w-30 h-12 border border-green-600 rounded-lg bg-green-500/10 text-center pt-1">
+        <span class="text-xs block text-white/80">Income</span>
+        <p class="text-green-600">
+          <span>&#8377;</span>
+          <span class="incomeAmount"></span>
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- function TButton() -->
+
+    <div class="flex justify-center items-center mb-">
+        <div class="w-full p-1 rounded bg-linear-180 from-[#3f3f3f] to-[#212121]">
+          <div class="p-0.5 bg-zinc-950 rounded-4xl">
+            <div id="TBtnContainer" class="flex min-w-80 h-8 bg-linear-180 from-[#3f3f3f] to-[#212121] shadow-[inset_0_2px_7px_#ffffff29] rounded-4xl ">
+              <button
+                id="allBtn"
+                type="button"
+                data-transaction-type="0"
+                class=" filterBtnCol  rounded-4xl py-1 w-full "
+              >
+                All
+              </button>
+              <button
+                id="incomeBtn"
+                type="button"
+                class=" w-full py-1 border-none rounded-4xl"
+                data-transaction-type="2"
+              >
+                Income
+              </button>
+              <button id="expenseBtn"
+                data-transaction-type="1"
+                type="button"
+                class="rounded-4xl   w-full py-1 "
+              >
+                Expense
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+<!-- function Tform() -->
+  <div id="formContainer" class="hidden z-50 absolute  bg-zinc-900 overflow-hidden max-w-80  w-full rounded-md p-2.5 pt-4  border border-zinc-600 top-10">
+    <form class="addForm  flex flex-col">
+      <div class="mb-5">
+        <button
+              id="amountTypeBtn"
+              type="button" 
+              class=" bg-red-600/20 px-3 rounded-sm border border-red-600  h-7 max-w-24 min-w-24">&#8722;Expense
+        </button>
+      </div>
+      
+      <div class="flex justify-between mb-5">
+        <select name="type" required class="typeSelector w-36  border bg-zinc-800 border-zinc-600 rounded  p-1.5 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 ">
+          <option value="" hidden class="text-zinc-900">Type</option>
+          <option value="food" class="mt-5">Food</option>
+          <option value="groceries">Groceries</option>
+          <option value="shopping">Shopping</option>
+          <option value="travel">Travel</option>
+          <option value="rent">Rent</option>
+          <option value="bills">Bills</option>
+          <option value="health">Health</option>
+          <option value="eMI">EMI</option>
+          <option value="other">Other</option>
+        </select>
+
+        <input
+          type="date"
+          name="date"
+          id=""
+          class=" dateFeild border bg-zinc-800 border-zinc-600 rounded  p-0.5 pt-1 w-36 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 "
+        />
+      </div>
+        
+      <div class="mb-5 ">
+        <span class="text-sm/6 font-medium text-white/60">Name</span>
+          <div class="mt-1">
+            <input
+              type="text"
+              name="iteam_Descripction"
+              list="iteamDescripctionList"
+              id=""
+              placeholder="Add iteam"
+              class="w-full bg-zinc-800 outline-1 -outline-offset-1 outline-zinc-600 py-1.5 pr-3 pl-2 text-base text-white placeholder:text-zinc-500 sm:text-sm/6 rounded-md max-w-full focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+            />
+            <datalist id="iteamDescripctionList">
+              <option value="Dal Rise">
+              <option value="Drum">
+              <option value="Service">
+              <option value="Milk">
+              <option value="Cake">
+              <option value="Choclet">
+            </datalist>
+          </div>
+      </div>
+
+      
+      <div class="mb-5">
+        <span class="block text-sm/6 font-medium text-white/60">Price</span>              
+        <div id= 'inputDiv' class=" mt-1 flex items-center rounded-md bg-zinc-800 pl-3 outline-1 -outline-offset-1 outline-zinc-600 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500 max-w-full">
+            <div class="shrink-0 text-base text-zinc-400 select-none sm:text-sm/6">
+              &#8377;
+            </div>
+            <input
+              id="price"
+              type="number"
+              name="productOrServiceAmount"
+              placeholder="0.00"
+              required
+              autocomplete="off"
+              class="min-w-0 grow bg-zinc-800 py-1.5 pr-3 pl-1 text-base text-white placeholder:text-zinc-500 focus:outline-none sm:text-sm/6 rounded-md"
+            />
+        </div>
+      </div>
+      
+      <div class="flex justify-between pl-30 ">
+        <button
+          id="cancleBtn"
+          type="button"
+          class="bg-zinc-700 hover:bg-zinc-600 duration-300 ease-in-out text-white px-4 py-1 rounded-md ">
+          Cancle
+        </button>
+        <button
+          type="submit"
+          class="bg-white text-zinc-950 px-4 py-1 rounded-md">
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+
+<!-- Data Table  -->
+  <div>
+        <div class="expense-header" >
+            <span>Date</span>
+            <span>Type</span>
+            <span>Description</span>
+            <span>Amount</span>
+        </div>
+        <ul id="transactionList">
+           
+        </ul>
+    </div>
+    
+<!-- overay div  -->
+        <div id="overlay" class=" z-10 hidden fixed bg-zinc-800/20
+         inset-0">
+        </div>
+
+<script src="script.js"></script>
+</body>
+</html>
+

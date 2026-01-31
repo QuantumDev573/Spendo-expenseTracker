@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply min-h-screen bg-zinc-950 text-white antialiased font-[roboto];
+  }
+}
+
+
+.amountTypeCol {
+    @apply border border-green-600 bg-green-600/20;
+  }
+
+@layer components {
+  .filterBtnCol {
+    @apply bg-linear-180 from-[#f2f2f2] to-[#b3b3b3] text-zinc-950 transition  duration-100 ease-linear
+  }
+}
+
+
