@@ -5,6 +5,7 @@ const spentType = {
 }
 
 let nowDate = new Date().toISOString().split("T")[0];
+document.querySelector(".dateFeild").value = nowDate;
 
 // Main sheet code
 
