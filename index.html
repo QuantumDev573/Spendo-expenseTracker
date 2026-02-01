@@ -68,7 +68,37 @@
         </style>
 </head>
 <body>
-  <div class=" mb-2  grid grid-cols-1 sm:flex justify-between items-center bg-zinc-400/20 ">
+  <div class=" mb-2  grid grid-cols-1 md:grid-cols-[0.01fr_1fr_0.5fr] bg-zinc-400/20 ">
+
+    <div class="mb-1 ">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" fill="none" stroke="#d3d2d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="40">
+
+        <defs>
+          <linearGradient id="spendoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="100%" stop-color="white    "/>
+            <stop offset="10%" stop-color="#cdc8c8"/>
+          </linearGradient>
+        </defs>
+
+        <g transform="translate(10, 10)">
+          <rect x="2" y="4" width="36" height="24" rx="4" ry="4"></rect>
+          <path d="M2 12h36"></path>
+          <path d="M26 20h6"></path>
+        </g>
+
+        <text
+          x="55"
+          y="36"
+          font-family="Arial, sans-serif"
+          fill="url(#spendoGradient)"
+          stroke="none"
+          font-size="24"
+          letter-spacing="1">
+          Spendo
+        </text>
+      </svg>
+    </div>
+
     <!-- function MainSheet() -->
     <div class="grid grid-cols-2 gap-2 mb-1 sm:order-2 md:flex">
 
@@ -106,7 +136,7 @@
 
     <!-- function TButton() -->
 
-    <div class="flex justify-center items-center mb-">
+    <div class="flex justify-center items-center md:max-w-85">
         <div class="w-full p-1 rounded bg-linear-180 from-[#3f3f3f] to-[#212121]">
           <div class="p-0.5 bg-zinc-950 rounded-4xl">
             <div id="TBtnContainer" class="flex min-w-80 h-8 bg-linear-180 from-[#3f3f3f] to-[#212121] shadow-[inset_0_2px_7px_#ffffff29] rounded-4xl ">
