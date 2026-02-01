@@ -154,7 +154,7 @@ function renderData(data){
     if (element.amountType === "1") {
       html += `
       <li id='${element.id}' class="transaction expense">
-        <span>${element.date}</span>
+        <span class="whitespace-nowrap">${element.date}</span>
         <span>${element.type}</span>
         <span>${element.iteam_Descripction == "" ? null : element.iteam_Descripction}</span>
         <span>${element.productOrServiceAmount}</span>
@@ -164,7 +164,7 @@ function renderData(data){
     } else {
       html += `
       <li id='${element.id}' class="transaction income">
-        <span>${element.date}</span>
+        <span class="whitespace-nowrap">${element.date}</span>
         <span>${element.type ?? null}</span>
         <span>${element.iteam_Descripction == "" ? null : element.iteam_Descripction}</span>
         <span>${element.productOrServiceAmount}</span>
