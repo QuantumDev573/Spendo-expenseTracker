@@ -10,9 +10,11 @@
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
     --color-red-700: oklch(50.5% 0.213 27.518);
+    --color-amber-400: oklch(82.8% 0.189 84.429);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-green-600: oklch(62.7% 0.194 149.214);
     --color-indigo-500: oklch(58.5% 0.233 277.117);
+    --color-zinc-300: oklch(87.1% 0.006 286.286);
     --color-zinc-400: oklch(70.5% 0.015 286.067);
     --color-zinc-500: oklch(55.2% 0.016 285.938);
     --color-zinc-600: oklch(44.2% 0.017 285.786);
@@ -197,11 +199,29 @@
   .fixed {
     position: fixed;
   }
+  .relative {
+    position: relative;
+  }
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
+  .-top-10 {
+    top: calc(var(--spacing) * -10);
+  }
+  .-top-20 {
+    top: calc(var(--spacing) * -20);
+  }
+  .-top-100 {
+    top: calc(var(--spacing) * -100);
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
   .top-10 {
     top: calc(var(--spacing) * 10);
+  }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
   }
   .-z-10 {
     z-index: calc(10 * -1);
@@ -226,6 +246,9 @@
   }
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
+  }
+  .box-border {
+    box-sizing: border-box;
   }
   .block {
     display: block;
@@ -317,8 +340,14 @@
   .flex-col {
     flex-direction: column;
   }
+  .flex-row {
+    flex-direction: row;
+  }
   .items-center {
     align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
   }
   .justify-between {
     justify-content: space-between;
@@ -358,8 +387,14 @@
   .border-green-600 {
     border-color: var(--color-green-600);
   }
+  .border-indigo-500 {
+    border-color: var(--color-indigo-500);
+  }
   .border-red-600 {
     border-color: var(--color-red-600);
+  }
+  .border-transparent {
+    border-color: transparent;
   }
   .border-white {
     border-color: var(--color-white);
@@ -406,6 +441,15 @@
   .bg-white {
     background-color: var(--color-white);
   }
+  .bg-zinc-300 {
+    background-color: var(--color-zinc-300);
+  }
+  .bg-zinc-300\/30 {
+    background-color: color-mix(in srgb, oklch(87.1% 0.006 286.286) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-300) 30%, transparent);
+    }
+  }
   .bg-zinc-400 {
     background-color: var(--color-zinc-400);
   }
@@ -415,8 +459,29 @@
       background-color: color-mix(in oklab, var(--color-zinc-400) 20%, transparent);
     }
   }
+  .bg-zinc-400\/30 {
+    background-color: color-mix(in srgb, oklch(70.5% 0.015 286.067) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-400) 30%, transparent);
+    }
+  }
+  .bg-zinc-500 {
+    background-color: var(--color-zinc-500);
+  }
+  .bg-zinc-500\/30 {
+    background-color: color-mix(in srgb, oklch(55.2% 0.016 285.938) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-500) 30%, transparent);
+    }
+  }
   .bg-zinc-700 {
     background-color: var(--color-zinc-700);
+  }
+  .bg-zinc-700\/50 {
+    background-color: color-mix(in srgb, oklch(37% 0.013 285.805) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-700) 50%, transparent);
+    }
   }
   .bg-zinc-800 {
     background-color: var(--color-zinc-800);
@@ -429,6 +494,18 @@
   }
   .bg-zinc-900 {
     background-color: var(--color-zinc-900);
+  }
+  .bg-zinc-900\/50 {
+    background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-900) 50%, transparent);
+    }
+  }
+  .bg-zinc-900\/70 {
+    background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-900) 70%, transparent);
+    }
   }
   .bg-zinc-950 {
     background-color: var(--color-zinc-950);
@@ -474,6 +551,9 @@
   .p-2\.5 {
     padding: calc(var(--spacing) * 2.5);
   }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
   }
@@ -492,6 +572,9 @@
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
   }
+  .pr-2 {
+    padding-right: calc(var(--spacing) * 2);
+  }
   .pr-3 {
     padding-right: calc(var(--spacing) * 3);
   }
@@ -506,6 +589,9 @@
   }
   .pl-3 {
     padding-left: calc(var(--spacing) * 3);
+  }
+  .pl-4 {
+    padding-left: calc(var(--spacing) * 4);
   }
   .pl-30 {
     padding-left: calc(var(--spacing) * 30);
@@ -609,6 +695,10 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .duration-150 {
+    --tw-duration: 150ms;
+    transition-duration: 150ms;
+  }
   .duration-200 {
     --tw-duration: 200ms;
     transition-duration: 200ms;
@@ -628,6 +718,41 @@
   .placeholder\:text-zinc-500 {
     &::placeholder {
       color: var(--color-zinc-500);
+    }
+  }
+  .hover\:border {
+    &:hover {
+      @media (hover: hover) {
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+      }
+    }
+  }
+  .hover\:border-indigo-500 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-indigo-500);
+      }
+    }
+  }
+  .hover\:bg-zinc-400\/30 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(70.5% 0.015 286.067) 30%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-zinc-400) 30%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-zinc-500\/30 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(55.2% 0.016 285.938) 30%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-zinc-500) 30%, transparent);
+        }
+      }
     }
   }
   .hover\:bg-zinc-600 {
@@ -707,86 +832,6 @@
   .sm\:order-2 {
     @media (width >= 40rem) {
       order: 2;
-    }
-  }
-  .sm\:flex {
-    @media (width >= 40rem) {
-      display: flex;
-    }
-  }
-  .sm\:max-w-85 {
-    @media (width >= 40rem) {
-      max-width: calc(var(--spacing) * 85);
-    }
-  }
-  .sm\:grid-cols-3 {
-    @media (width >= 40rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  .sm\:grid-cols-\[0\.0fr_0\.5fr_1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 0.0fr 0.5fr 1fr;
-    }
-  }
-  .sm\:grid-cols-\[0\.01fr_0\.5fr_1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 0.01fr 0.5fr 1fr;
-    }
-  }
-  .sm\:grid-cols-\[0\.01fr_1fr_0\.5fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 0.01fr 1fr 0.5fr;
-    }
-  }
-  .sm\:grid-cols-\[0\.01fr_1fr_1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 0.01fr 1fr 1fr;
-    }
-  }
-  .sm\:grid-cols-\[0\.01fr_1frfr_1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 0.01fr 1frfr 1fr;
-    }
-  }
-  .sm\:grid-cols-\[0\.1fr_0\.5fr_1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 0.1fr 0.5fr 1fr;
-    }
-  }
-  .sm\:grid-cols-\[0\.1fr_1fr_1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 0.1fr 1fr 1fr;
-    }
-  }
-  .sm\:grid-cols-\[0\.05fr_1fr_1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 0.05fr 1fr 1fr;
-    }
-  }
-  .sm\:grid-cols-\[0\.5fr_1fr_1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 0.5fr 1fr 1fr;
-    }
-  }
-  .sm\:grid-cols-\[1fr\,\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 1fr,;
-    }
-  }
-  .sm\:grid-cols-\[1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 1fr;
-    }
-  }
-  .sm\:grid-cols-\[1fr_1fr_1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
-  .sm\:grid-cols-\[fr_1fr_1fr\] {
-    @media (width >= 40rem) {
-      grid-template-columns: fr 1fr 1fr;
     }
   }
   .sm\:text-sm\/6 {
