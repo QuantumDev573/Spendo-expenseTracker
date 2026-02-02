@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
           body{
-              
+              position: relative;
               color: white;
               padding:3px;
           }
@@ -172,88 +172,90 @@
 
 
 <!-- function Tform() -->
-  <div id="formContainer" class="hidden z-50 absolute  bg-zinc-900 overflow-hidden max-w-80  w-full rounded-md p-2.5 pt-4  border border-zinc-600 top-10">
-    <form class="addForm  flex flex-col">
-      <div class="mb-5">
-        <button
-              id="amountTypeBtn"
-              type="button" 
-              class=" bg-red-600/20 px-3 rounded-sm border border-red-600  h-7 max-w-24 min-w-24">&#8722;Expense
-        </button>
-      </div>
-      
-      <div class="flex justify-between mb-5">
-        <select name="type" required class="typeSelector w-36  border bg-zinc-800 border-zinc-600 rounded  p-1.5 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 ">
-          <option value="" hidden class="text-zinc-900">Category</option>
-          <option value="food" class="mt-5">Food</option>
-          <option value="groceries">Groceries</option>
-          <option value="shopping">Shopping</option>
-          <option value="travel">Travel</option>
-          <option value="rent">Rent</option>
-          <option value="bills">Bills</option>
-          <option value="health">Health</option>
-          <option value="eMI">EMI</option>
-          <option value="other">Other</option>
-        </select>
-
-        <input
-          type="date"
-          name="date"
-          id=""
-          class=" dateFeild border bg-zinc-800 border-zinc-600 rounded  p-0.5 pt-1 w-36 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 "
-        />
-      </div>
-        
-      <div class="mb-5 ">
-        <span class="text-sm/6 font-medium text-white/60">Descripction</span>
-          <div class="mt-1">
-            <input
-              type="text"
-              name="iteam_Descripction"
-              list="iteamDescripctionList"
-              id=""
-              placeholder="Add iteam"
-              class="w-full bg-zinc-800 outline-1 -outline-offset-1 outline-zinc-600 py-1.5 pr-3 pl-2 text-base text-white placeholder:text-zinc-500 sm:text-sm/6 rounded-md max-w-full focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
-            />
-            <datalist id="iteamDescripctionList">
-              
-            </datalist>
-          </div>
-      </div>
-
-      
-      <div class="mb-5">
-        <span class="block text-sm/6 font-medium text-white/60">Price</span>              
-        <div id= 'inputDiv' class=" mt-1 flex items-center rounded-md bg-zinc-800 pl-3 outline-1 -outline-offset-1 outline-zinc-600 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500 max-w-full">
-            <div class="shrink-0 text-base text-zinc-400 select-none sm:text-sm/6">
-              &#8377;
-            </div>
-            <input
-              id="price"
-              type="number"
-              name="productOrServiceAmount"
-              placeholder="0.00"
-              required
-              autocomplete="off"
-              class="min-w-0 grow bg-zinc-800 py-1.5 pr-3 pl-1 text-base text-white placeholder:text-zinc-500 focus:outline-none sm:text-sm/6 rounded-md"
-            />
+  <div class="flex justify-center ">
+    <div id="formContainer" class=" hidden z-50 absolute  bg-zinc-900 overflow-hidden max-w-80  w-full rounded-md p-2.5 pt-4  border border-zinc-600 ">
+      <form class="addForm  flex flex-col ">
+        <div class="mb-5">
+          <button
+                id="amountTypeBtn"
+                type="button" 
+                class=" bg-red-600/20 px-3 rounded-sm border border-red-600  h-7 max-w-24 min-w-24">&#8722;Expense
+          </button>
         </div>
-      </div>
-      
-      <div class="flex justify-between pl-30 ">
-        <button
-          id="cancleBtn"
-          type="button"
-          class="bg-zinc-700 hover:bg-zinc-600 duration-300 ease-in-out text-white px-4 py-1 rounded-md ">
-          Cancle
-        </button>
-        <button
-          type="submit"
-          class="bg-white text-zinc-950 px-4 py-1 rounded-md">
-          Add
-        </button>
-      </div>
-    </form>
+        
+        <div class="flex justify-between mb-5">
+          <select name="type" required class="typeSelector w-36  border bg-zinc-800 border-zinc-600 rounded  p-1.5 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 ">
+            <option value="" hidden class="text-zinc-900">Category</option>
+            <option value="food" class="mt-5">Food</option>
+            <option value="groceries">Groceries</option>
+            <option value="shopping">Shopping</option>
+            <option value="travel">Travel</option>
+            <option value="rent">Rent</option>
+            <option value="bills">Bills</option>
+            <option value="health">Health</option>
+            <option value="eMI">EMI</option>
+            <option value="other">Other</option>
+          </select>
+
+          <input
+            type="date"
+            name="date"
+            id=""
+            class=" dateFeild border bg-zinc-800 border-zinc-600 rounded  p-0.5 pt-1 w-36 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 "
+          />
+        </div>
+          
+        <div class="mb-5 ">
+          <span class="text-sm/6 font-medium text-white/60">Descripction</span>
+            <div class="mt-1">
+              <input
+                type="text"
+                name="iteam_Descripction"
+                list="iteamDescripctionList"
+                id=""
+                placeholder="Add iteam"
+                class="w-full bg-zinc-800 outline-1 -outline-offset-1 outline-zinc-600 py-1.5 pr-3 pl-2 text-base text-white placeholder:text-zinc-500 sm:text-sm/6 rounded-md max-w-full focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+              />
+              <datalist id="iteamDescripctionList">
+                
+              </datalist>
+            </div>
+        </div>
+
+        
+        <div class="mb-5">
+          <span class="block text-sm/6 font-medium text-white/60">Price</span>              
+          <div id= 'inputDiv' class=" mt-1 flex items-center rounded-md bg-zinc-800 pl-3 outline-1 -outline-offset-1 outline-zinc-600 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500 max-w-full">
+              <div class="shrink-0 text-base text-zinc-400 select-none sm:text-sm/6">
+                &#8377;
+              </div>
+              <input
+                id="price"
+                type="number"
+                name="productOrServiceAmount"
+                placeholder="0.00"
+                required
+                autocomplete="off"
+                class="min-w-0 grow bg-zinc-800 py-1.5 pr-3 pl-1 text-base text-white placeholder:text-zinc-500 focus:outline-none sm:text-sm/6 rounded-md"
+              />
+          </div>
+        </div>
+        
+        <div class="flex justify-between pl-30 ">
+          <button
+            id="cancleBtn"
+            type="button"
+            class="bg-zinc-700 hover:bg-zinc-600 duration-300 ease-in-out text-white px-4 py-1 rounded-md ">
+            Cancle
+          </button>
+          <button
+            type="submit"
+            class="bg-white text-zinc-950 px-4 py-1 rounded-md">
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 
 <!-- Data Table  -->
