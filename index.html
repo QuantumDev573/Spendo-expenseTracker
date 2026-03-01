@@ -327,9 +327,9 @@
 <!-- Filters components -->
   
   <!-- amount range component  -->
-  <div class="mt-5 w-80 bg-zinc-900  rounded flex flex-col justify-center items-center">
+  <div class="mt-5 w-80 p-1 bg-zinc-900  rounded flex flex-col justify-center items-center">
     <!-- category filter  -->
-    <div class="w-full border border-zinc-700 rounded">
+    <div class="w-full mb-1 border border-zinc-800 rounded">
       <span class="text-zinc-400 p-2">Category</span>
       <div id="categoryMenu" class=" grid grid-cols-3 w-full p-1 bg-zinc-800 rounded ">
         <label><input type="checkbox" class="category" value="food"> Food</label>
@@ -344,9 +344,9 @@
       </div>
     </div>
 
-    <div class="border border-zinc-700 rounded">
+    <div class=" w-full mb-1 border border-zinc-800 rounded">
       <span class="p-2 text-zinc-400 ">Date</span>
-      <div class=" w-80 bg-zinc-800 p-2  rounded flex flex-col justify-center items-center ">
+      <div class=" bg-zinc-800 p-2  rounded flex flex-col justify-center items-center ">
         <div class="flex justify-between items-center w-full ">
           <div>
             <span class="text-zinc-300">From</span>
@@ -375,9 +375,9 @@
       </div>
     </div>
 
-    <div class="border border-zinc-700 rounded">
+    <div class=" w-full mb-3 border border-zinc-800 rounded">
       <span class="p-2 text-zinc-400 ">Price</span>
-      <div class=" w-80 bg-zinc-800 p-2  rounded flex flex-col justify-center items-center ">
+      <div class=" bg-zinc-800 p-2  rounded flex flex-col justify-center items-center ">
         <div class="flex justify-between items-center w-full ">
           <div>
             <span class="text-zinc-300">Min</span>
@@ -396,9 +396,11 @@
       </div>
     </div>
 
-    <div class="flex justify-">
-      <button type="button" class=" clearFilterBtn rounded px-3 text-zinc-300 bg-zinc-950">Clear</button>
-      <button type="button" class=" applyFilterBtn rounded px-3 bg-zinc-300 text-zinc-950">Apply</button>
+    <div class="w-full flex justify-end">
+      <div class=" w-40  flex justify-between">
+        <button type="button" class=" clearFilterBtn rounded px-3 text-zinc-300 border border-zinc-300">Clear</button>
+        <button type="button" class=" applyFilterBtn rounded px-3 bg-zinc-300 text-zinc-950">Apply</button>
+      </div>
     </div>
   </div>
 
