@@ -332,15 +332,15 @@
     <div class="w-full border border-zinc-700 rounded">
       <span class="text-zinc-400 p-2">Category</span>
       <div id="categoryMenu" class=" grid grid-cols-3 w-full p-1 bg-zinc-800 rounded ">
-        <label><input type="checkbox" class=""> Food</label>
-        <label><input type="checkbox" class=""> Groceries</label>
-        <label><input type="checkbox"> Shopping</label>
-        <label><input type="checkbox"> Travel</label>
-        <label><input type="checkbox"> Rent</label>
-        <label><input type="checkbox"> Bill</label>
-        <label><input type="checkbox"> Health</label>
-        <label><input type="checkbox"> EMI</label>
-        <label><input type="checkbox"> Other</label>
+        <label><input type="checkbox" class="category" value="food"> Food</label>
+        <label><input type="checkbox" class="category" value="groceries"> Groceries</label>
+        <label><input type="checkbox" class="category" value="shopping"> Shopping</label>
+        <label><input type="checkbox" class="category" value="travel"> Travel</label>
+        <label><input type="checkbox" class="category" value="rent"> Rent</label>
+        <label><input type="checkbox" class="category" value="bill"> Bill</label>
+        <label><input type="checkbox" class="category" value="health"> Health</label>
+        <label><input type="checkbox" class="category" value="eMI"> EMI</label>
+        <label><input type="checkbox" class="category" value="other"> Other</label>
       </div>
     </div>
 
@@ -355,7 +355,7 @@
                 type="date"
                 name="date"
                 id=""
-                class=" bg-zinc-800  rounded  p-0.5  w-34 focus:outline-none  "
+                class=" dateFrom bg-zinc-800  rounded  p-0.5  w-34 focus:outline-none  "
               />           
             </div>
           </div>
@@ -367,7 +367,7 @@
                 type="date"
                 name="date"
                 id=""
-                class=" bg-zinc-800  rounded  p-0.5  w-34 focus:outline-none  "
+                class=" dateTo bg-zinc-800  rounded  p-0.5  w-34 focus:outline-none  "
               />           
             </div>
           </div>
@@ -382,14 +382,14 @@
           <div>
             <span class="text-zinc-300">Min</span>
             <div class="diContainer  w-fit mt-1">
-              <input type="number" name="" id="" placeholder="&#8377; 0.00" class=" no-spinner p-0.5 pl-2  w-34 border-none bg-zinc-800 border-zinc-600 rounded  focus:outline-none ">
+              <input type="number" name="" id="" placeholder="&#8377; 0.00" class=" rangeMin no-spinner p-0.5 pl-2  w-34 border-none bg-zinc-800 border-zinc-600 rounded  focus:outline-none ">
             </div>
           </div>
 
           <div>
             <span class="text-white/60">Max</span>
             <div class="diContainer  w-fit mt-1">
-              <input type="number" name="" id="" placeholder="&#8377; 0.00" class=" no-spinner p-0.5 pl-2 w-34 border-none bg-zinc-800 border-zinc-600 rounded focus:outline-none ">
+              <input type="number" name="" id="" placeholder="&#8377; 0.00" class=" rangeMax no-spinner p-0.5 pl-2 w-34 border-none bg-zinc-800 border-zinc-600 rounded focus:outline-none ">
             </div>
           </div>
         </div>
@@ -397,8 +397,8 @@
     </div>
 
     <div class="flex justify-">
-      <button type="button" class=" rounded px-3 text-zinc-300 bg-zinc-950">Clear</button>
-      <button type="button" class=" rounded px-3 bg-zinc-300 text-zinc-950">Filter</button>
+      <button type="button" class=" clearFilterBtn rounded px-3 text-zinc-300 bg-zinc-950">Clear</button>
+      <button type="button" class=" applyFilterBtn rounded px-3 bg-zinc-300 text-zinc-950">Apply</button>
     </div>
   </div>
 

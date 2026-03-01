@@ -206,6 +206,51 @@ addFilterBtn.addEventListener("click", function () {
   overlay.classList.remove("hidden");
 });
 
+// Filter code
+function applyFilter(){
+  const categoryCheckBoxex = document.querySelectorAll(".category:checked")
+  const selectedCategory = Array.from(categoryCheckBoxex).map(
+    (checkbox) => checkbox.value,
+  );
+
+  const min = document.querySelector('.rangeMin').value;
+  const max = document.querySelector(".rangeMax").value;
+  const from = document.querySelector(".dateFrom").value;
+  const to = document.querySelector(".dateTo").value;
+
+  const filtered= getData().filter((product) => {
+    return (
+      (selectedCategory === "" || selectedCategory.includes(product.type))&&
+      (from === "" || product.date >= from) && 
+      (to === "" || product.date <= to)&&
+      (min === "" || product.productOrServiceAmount >= min) &&
+      (max === "" || product.productOrServiceAmount <= max)
+    );
+  })
+
+  if(filtered != ""){
+    renderData(filtered)
+  }
+  
+}
+
+document.querySelector(".applyFilterBtn").addEventListener('click', () => applyFilter())
+document.querySelector(".clearFilterBtn").addEventListener('click', () => {
+  document.querySelectorAll(".category").forEach(box => box.checked = false)
+  document.querySelector(".rangeMin").value = ""
+  document.querySelector(".rangeMax").value = ""
+  document.querySelector(".dateFrom").value = ""
+  document.querySelector(".dateTo").value = ""
+  return renderData(getData())
+})
+
+
+
+
+
+
+
+
 
 
 
