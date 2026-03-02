@@ -220,13 +220,16 @@ function applyFilter(){
 
   const filtered= getData().filter((product) => {
     return (
-      (selectedCategory === "" || selectedCategory.includes(product.type))&&
+      (selectedCategory.length === 0 || selectedCategory.includes(product.type)) &&
       (from === "" || product.date >= from) && 
       (to === "" || product.date <= to)&&
       (min === "" || product.productOrServiceAmount >= min) &&
       (max === "" || product.productOrServiceAmount <= max)
+    
     );
+    
   })
+  
 
   if(filtered != ""){
     renderData(filtered)
@@ -238,7 +241,7 @@ document.querySelector(".applyFilterBtn").addEventListener('click', () =>
   {
   overlay.classList.add("hidden");
   filterContainer.classList.add("hidden");
-  applyFilter()
+  applyFilter();
 })
 document.querySelector(".clearFilterBtn").addEventListener('click', () => {
   document.querySelectorAll(".category").forEach(box => box.checked = false)
@@ -248,6 +251,8 @@ document.querySelector(".clearFilterBtn").addEventListener('click', () => {
   document.querySelector(".dateTo").value = ""
   return renderData(getData())
 })
+
+
 
 
 
