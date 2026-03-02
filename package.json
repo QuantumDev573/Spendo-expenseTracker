@@ -1,12 +1,6 @@
 {
-<<<<<<< HEAD
-  "dependencies": {
-    "@tailwindcss/cli": "^4.1.18",
-    "tailwindcss": "^4.1.18"
-=======
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.1",
     "tailwindcss": "^4.2.1"
->>>>>>> footer
   }
 }
