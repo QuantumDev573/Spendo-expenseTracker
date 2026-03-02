@@ -81,7 +81,7 @@ document.getElementById('cancleBtn').addEventListener('click', function(){
 overlay.addEventListener('click',function(){
     form.classList.add("hidden");
     overlay.classList.add("hidden");
-    filterButtonContainer.classList.add("hidden")
+    filterContainer.classList.add("hidden")
 })
 
 //Form data code
@@ -199,10 +199,10 @@ mainListContainer.addEventListener('click', function(event){
 
 //footer code
 const addFilterBtn = document.querySelector(".addFilter");
-const filterButtonContainer = document.querySelector(".filterBtnContainer");
+const filterContainer = document.querySelector(".filterContainer");
 
 addFilterBtn.addEventListener("click", function () {
-  filterButtonContainer.classList.remove("hidden");
+  filterContainer.classList.remove("hidden");
   overlay.classList.remove("hidden");
 });
 
@@ -234,7 +234,12 @@ function applyFilter(){
   
 }
 
-document.querySelector(".applyFilterBtn").addEventListener('click', () => applyFilter())
+document.querySelector(".applyFilterBtn").addEventListener('click', () => 
+  {
+  overlay.classList.add("hidden");
+  filterContainer.classList.add("hidden");
+  applyFilter()
+})
 document.querySelector(".clearFilterBtn").addEventListener('click', () => {
   document.querySelectorAll(".category").forEach(box => box.checked = false)
   document.querySelector(".rangeMin").value = ""
