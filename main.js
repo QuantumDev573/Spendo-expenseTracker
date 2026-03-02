@@ -81,6 +81,7 @@ document.getElementById('cancleBtn').addEventListener('click', function(){
 overlay.addEventListener('click',function(){
     form.classList.add("hidden");
     overlay.classList.add("hidden");
+    filterContainer.classList.add("hidden")
 })
 
 //Form data code
@@ -195,6 +196,65 @@ mainListContainer.addEventListener('click', function(event){
 
   Amounts()
 })
+
+//footer code
+const addFilterBtn = document.querySelector(".addFilter");
+const filterContainer = document.querySelector(".filterContainer");
+
+addFilterBtn.addEventListener("click", function () {
+  filterContainer.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+});
+
+// Filter code
+function applyFilter(){
+  const categoryCheckBoxex = document.querySelectorAll(".category:checked")
+  const selectedCategory = Array.from(categoryCheckBoxex).map(
+    (checkbox) => checkbox.value,
+  );
+
+  const min = document.querySelector('.rangeMin').value;
+  const max = document.querySelector(".rangeMax").value;
+  const from = document.querySelector(".dateFrom").value;
+  const to = document.querySelector(".dateTo").value;
+
+  const filtered= getData().filter((product) => {
+    return (
+      (selectedCategory === "" || selectedCategory.includes(product.type))&&
+      (from === "" || product.date >= from) && 
+      (to === "" || product.date <= to)&&
+      (min === "" || product.productOrServiceAmount >= min) &&
+      (max === "" || product.productOrServiceAmount <= max)
+    );
+  })
+
+  if(filtered != ""){
+    renderData(filtered)
+  }
+  
+}
+
+document.querySelector(".applyFilterBtn").addEventListener('click', () => 
+  {
+  overlay.classList.add("hidden");
+  filterContainer.classList.add("hidden");
+  applyFilter()
+})
+document.querySelector(".clearFilterBtn").addEventListener('click', () => {
+  document.querySelectorAll(".category").forEach(box => box.checked = false)
+  document.querySelector(".rangeMin").value = ""
+  document.querySelector(".rangeMax").value = ""
+  document.querySelector(".dateFrom").value = ""
+  document.querySelector(".dateTo").value = ""
+  return renderData(getData())
+})
+
+
+
+
+
+
+
 
 
 
