@@ -13,6 +13,12 @@
   .no-spinner {
     -moz-appearance: textfield;
   }
+
+
+  input[type="number"] {
+  -moz-appearance: textfield;
+  }
+
 }
 
 

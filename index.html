@@ -10,10 +10,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
-          body{
+         html,body{
               position: relative;
               color: white;
               font-weight: 400;
+              overflow-y: hidden;
+              height: 100vh;
+              overflow: hidden;
           }
           .transaction {
           display: grid;
@@ -85,7 +88,7 @@
         </style>
 </head>
 <body>
-  <div class="w-full h-screen flex flex-col">
+  <div class="w-full h-screen flex flex-col" >
     <div class=" mb-2  grid grid-cols-1 md:grid-cols-[0.01fr_1fr_0.5fr] bg-zinc-800 ">
       <div class="flex justify-between items-center">
         <div class="mb-1 ">
@@ -201,8 +204,8 @@
     </div>
 
     <!-- List Data  -->
-    <div >
-      <ul id="transactionList" class=" flex-1 overflow-y-auto">
+    <div style="height: 100vh; border: 2px solid rgba(114, 114, 114, 0.414); padding: 4px; border-radius: 6px; overflow: hidden;">
+      <ul id="transactionList" class="" style="overflow-y: auto; height:100%; ">
       </ul>
     </div>
   </div>
@@ -304,8 +307,8 @@
  
 
 <!-- Filters components -->
-  <div class=" filterContainer hidden z-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-    <div class="w-80 p-1 bg-zinc-900  rounded flex flex-col justify-center items-center">
+  <div class=" filterContainer hidden  z-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div class="w-80 p-1 bg-zinc-900  rounded flex flex-col justify-center items-center border border-zinc-600">
       <!-- category filter  -->
       <div class="w-full mb-1 border border-zinc-800 rounded">
         <span class="text-zinc-400 p-2">Category</span>
@@ -360,7 +363,7 @@
             <div>
               <span class="text-zinc-300">Min</span>
               <div class="diContainer  w-fit mt-1">
-                <input type="number" name="" id="" placeholder="&#8377; 0.00" class=" rangeMin no-spinner p-0.5 pl-2  w-34 border-none bg-zinc-800 border-zinc-600 rounded  focus:outline-none ">
+                <input type="number" name="" id="" placeholder="&#8377; 0.00" class="rangeMin no-spinner p-0.5 pl-2  w-34 border-none bg-zinc-800 border-zinc-600 rounded  focus:outline-none" >
               </div>
             </div>
 
@@ -383,6 +386,8 @@
     </div>
   </div>
 
+
+  
   
 
 
